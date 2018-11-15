@@ -3,12 +3,12 @@
 javac consoleAnimations.java
 java consoleAnimations
 */
-
 import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
 
 public class consoleAnimations {
 
-    public static void consoleAnimations(String chaserEmoji, String chaseeEmoji, String reactionEmoji) {
+    public static void chaseAnimation(String chaserEmoji, String chaseeEmoji, String reactionEmoji) {
 
         String bottomOfPage = "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n";
         String space = "                                                                                                                                             ";
@@ -36,12 +36,133 @@ public class consoleAnimations {
         catch (java.lang.InterruptedException e){System.out.println("java.lang.InterruptedException");}
     }
 
+    public static void flyingAnimation(String flyingEmoji, String reactionEmoji) {
+        String distToTopOfConsole = "\n \n \n \n \n \n \n \n";
+        String distToBottomOfConsole = distToTopOfConsole;
+        String space = "";
+
+        int limit = 100;
+        try {
+            for (int i = 0; i < limit; i++) {
+                System.out.print(distToTopOfConsole);
+                if (i % 3 == 0){
+                    distToTopOfConsole = distToTopOfConsole.substring(0,distToTopOfConsole.length()-1);
+                    distToBottomOfConsole += "\n" + "\n";
+                }
+                if (i % 5 == 0){
+                    distToBottomOfConsole = distToBottomOfConsole.substring(0,distToTopOfConsole.length()-1);
+                    distToTopOfConsole += "\n" + "\n";
+                }
+                space += "   ";
+                System.out.print(space + flyingEmoji);
+                System.out.print(distToBottomOfConsole);
+                TimeUnit.MILLISECONDS.sleep(500);
+            }
+
+
+            String reaction = "                                                                    " + reactionEmoji;
+            for (int k = 0; k < limit / 15; k++)
+            {
+                reaction += reaction;
+                System.out.println(reaction);
+            }
+
+            TimeUnit.SECONDS.sleep(2);
+        }
+        catch (java.lang.InterruptedException e){System.out.println("java.lang.InterruptedException");}
+    }
+
+    public static void moon() {
+        String distToTopOfConsole = "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n";
+        String distToBottomOfConsole = "\n  \n";
+        String space = "";
+//        char[] mn = {'u', 'D', '8','3','C', 'u','D','F','1', '1'};
+//
+//        for(int i = 0; i < mn.length; i++){
+//            if(i%5 == 0){
+//                space += "\\";
+//            }
+//            space += mn[i];
+//        }
+//
+        System.out.println(space);
+        HashMap<String, String> moonPhases = new HashMap<>();
+
+        String moon = "";
+        moonPhases.put("newMoon", "\uD83C\uDF11");
+        moonPhases.put("waxingCrescentMoon", "\uD83C\uDF12");
+        moonPhases.put("firstQuarterMoon", "\uD83C\uDF13");
+        moonPhases.put("waxingGibbousMoon", "\uD83C\uDF14");
+        moonPhases.put("fullMoon", "\uD83C\uDF15");
+        moonPhases.put("waningGibbousMoon", "\uD83C\uDF16");
+        moonPhases.put("lastQuarterMoon", "\uD83C\uDF17");
+        moonPhases.put("waningCrescentMoon", "\uD83C\uDF18");
+
+        int phase = 28;
+        try {
+            for (int i = 0; i < phase; i++) {
+                space += "   ";
+                System.out.print(distToTopOfConsole);
+                if (i < 14){
+                    distToTopOfConsole = distToTopOfConsole.substring(0,distToTopOfConsole.length()-1);
+                    distToBottomOfConsole += "\n";
+                }
+                else {
+                    distToBottomOfConsole = distToBottomOfConsole.substring(0,distToBottomOfConsole.length()-1);
+                    distToTopOfConsole += "\n";
+                }
+
+                if (i < 3){
+                    moon = moonPhases.get("newMoon");
+                }
+                else if (i < 6){
+                    moon = moonPhases.get("waxingCrescentMoon");
+                }
+                else if (i < 9) {
+                    moon =  moonPhases.get("firstQuarterMoon");
+                }
+                else if (i < 12){
+                    moon = moonPhases.get("waxingGibbousMoon");
+                }
+                else if (i < 15) {
+                    moon = moonPhases.get("fullMoon");
+                }
+                else if (i < 18){
+                    moon = moonPhases.get("waningGibbousMoon");
+                }
+                else if (i < 21){
+                    moon = moonPhases.get("lastQuarterMoon");
+                }
+                else{
+                    moon = moonPhases.get("waningCrescentMoon");
+                }
+                space += " ";
+                System.out.print(space + moon);
+                System.out.print(distToBottomOfConsole);
+                TimeUnit.MILLISECONDS.sleep(500);
+            }
+
+            String reactionEmoji = "⭐";
+
+            String reaction = "                                             " + reactionEmoji;
+            for (int k = 0; k < phase/4; k++)
+            {
+                reaction += reaction;
+                System.out.println(reaction);
+            }
+
+            TimeUnit.SECONDS.sleep(2);
+        }
+        catch (java.lang.InterruptedException e){System.out.println("java.lang.InterruptedException");}
+    }
+
     public static void main(String[] args){
 
         System.out.println("Pick your own emoji from: https://emojipedia.org");
-        consoleAnimations("\uD83D\uDC07","\uD83D\uDC08", "\uD83D\uDC96");
-        consoleAnimations("\uD83E\uDD96","\uD83D\uDC33", "\uD83C\uDF88");
-        consoleAnimations("\uD83C\uDF88", "\uD83E\uDD21 ", "\uD83D\uDE28");
+//        chaseAnimation("\uD83D\uDC07","\uD83D\uDC08", "\uD83D\uDC96");
+//        chaseAnimation("\uD83E\uDD96","\uD83D\uDC33", "\uD83C\uDF88");
+//        chaseAnimation("\uD83C\uDF88", "\uD83E\uDD21 ", "\uD83D\uDE28");
+//        flyingAnimation("\uD83E\uDD85","\uD83D\uDC96");
+        moon();
     }
 }
-
