@@ -1,4 +1,8 @@
 //Input any 3 emojis and see them interact on your console
+/*As a reminder for newer folks, to run this in your terminal, cd to the folder where you are keeping consoleAnimations, then type:
+javac consoleAnimations.java
+java consoleAnimations
+*/
 
 import java.util.concurrent.TimeUnit;
 
