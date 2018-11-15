@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class consoleAnimations {
 
-    public static void consoleAnimations(String emoji1, String emoji2, String emoji3) {
+    public static void consoleAnimations(String chaserEmoji, String chaseeEmoji, String reactionEmoji) {
 
         String bottomOfPage = "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n";
         String space = "                                                                                                                                             ";
@@ -18,13 +18,13 @@ public class consoleAnimations {
             for (int i = 0; i < limit; i++) {
                 System.out.print(bottomOfPage);
                 space = space.substring(0, ((limit + 1) / 2) - i / 2);
-                System.out.print(space + emoji1 + space + emoji2);
+                System.out.print(space + chaserEmoji + space + chaseeEmoji);
                 TimeUnit.MILLISECONDS.sleep(space.length() * 5);
                 System.out.println();
             }
 
 
-            String reaction = "                                                                    " + emoji3;
+            String reaction = "                                                                    " + reactionEmoji;
             for (int k = 0; k < limit / 15; k++)
             {
                 reaction += reaction;
@@ -44,3 +44,4 @@ public class consoleAnimations {
         consoleAnimations("\uD83C\uDF88", "\uD83E\uDD21 ", "\uD83D\uDE28");
     }
 }
+
