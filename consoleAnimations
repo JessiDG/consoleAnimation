@@ -1,0 +1,25 @@
+import java.util.concurrent.TimeUnit;
+//------------------------------------------------------
+public class consoleAnimations
+{
+   // -------  main --------------
+   public static void main(String[] args) throws Exception
+   {
+       String bottomOfPage = "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n";
+       String space = "                                                                                                                                             ";
+
+       int limit = 100;
+      for(int i = 0; i < limit; i ++){
+         System.out.print(bottomOfPage);
+         space = space.substring(0,((limit + 1)/2)-i/2);
+         System.out.print(space + "\uD83D\uDC07" + space + "\uD83D\uDC08" );
+         TimeUnit.MILLISECONDS.sleep(space.length()*5);
+         System.out.println();
+      }
+
+      String reaction = "                                                                    "+ "\uD83D\uDC96 ";
+      for(int k = 0; k < limit/15; k++) {
+          reaction += reaction;
+          System.out.println(reaction);
+      }
+}
