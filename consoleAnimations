@@ -1,4 +1,5 @@
 import java.util.concurrent.TimeUnit;
+//An emoji cat chases an emoji rabbit -- but to what end?
 //------------------------------------------------------
 public class consoleAnimations
 {
