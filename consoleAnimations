@@ -1,26 +1,42 @@
+//Input any 3 emojis and see them interact on your console
+
 import java.util.concurrent.TimeUnit;
-//An emoji cat chases an emoji rabbit -- but to what end?
-//------------------------------------------------------
-public class consoleAnimations
-{
-   // -------  main --------------
-   public static void main(String[] args) throws Exception
-   {
-       String bottomOfPage = "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n";
-       String space = "                                                                                                                                             ";
 
-       int limit = 100;
-      for(int i = 0; i < limit; i ++){
-         System.out.print(bottomOfPage);
-         space = space.substring(0,((limit + 1)/2)-i/2);
-         System.out.print(space + "\uD83D\uDC07" + space + "\uD83D\uDC08" );
-         TimeUnit.MILLISECONDS.sleep(space.length()*5);
-         System.out.println();
-      }
+public class consoleAnimations {
 
-      String reaction = "                                                                    "+ "\uD83D\uDC96 ";
-      for(int k = 0; k < limit/15; k++) {
-          reaction += reaction;
-          System.out.println(reaction);
-      }
+    public static void consoleAnimations(String emoji1, String emoji2, String emoji3) {
+
+        String bottomOfPage = "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n";
+        String space = "                                                                                                                                             ";
+
+        int limit = 100;
+        try {
+            for (int i = 0; i < limit; i++) {
+                System.out.print(bottomOfPage);
+                space = space.substring(0, ((limit + 1) / 2) - i / 2);
+                System.out.print(space + emoji1 + space + emoji2);
+                TimeUnit.MILLISECONDS.sleep(space.length() * 5);
+                System.out.println();
+            }
+
+
+            String reaction = "                                                                    " + emoji3;
+            for (int k = 0; k < limit / 15; k++)
+            {
+                reaction += reaction;
+                System.out.println(reaction);
+            }
+
+            TimeUnit.SECONDS.sleep(2);
+        }
+        catch (java.lang.InterruptedException e){System.out.println("java.lang.InterruptedException");}
+    }
+
+    public static void main(String[] args){
+
+        System.out.println("Pick your own emoji from: https://emojipedia.org");
+        consoleAnimations("\uD83D\uDC07","\uD83D\uDC08", "\uD83D\uDC96");
+        consoleAnimations("\uD83E\uDD96","\uD83D\uDC33", "\uD83C\uDF88");
+        consoleAnimations("\uD83C\uDF88", "\uD83E\uDD21 ", "\uD83D\uDE28");
+    }
 }
